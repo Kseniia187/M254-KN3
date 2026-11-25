@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    color: #1a1a1a;
+}
+
+header {
+    border-bottom: 2px solid #005a9c;
+    margin-bottom: 1.5rem;
+}
+
+header nav a {
+    margin-right: 1rem;
+    color: #005a9c;
+}
+
+fieldset {
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+label.radio {
+    display: inline-block;
+    margin-right: 1rem;
+    font-weight: normal;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.4rem;
+    margin-top: 0.25rem;
+}
+
+button {
+    background: #005a9c;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.fehler {
+    background: #fdecea;
+    border: 1px solid #d93025;
+    color: #611a15;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.erfolg {
+    background: #e6f4ea;
+    border: 1px solid #1e7e34;
+    color: #0b3d19;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.hinweis {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.4rem;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+tr.status-bestaetigt td {
+    background: #e6f4ea;
+}
+
+tr.status-abgesagt td {
+    background: #fdecea;
+}

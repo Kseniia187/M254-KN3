@@ -28,12 +28,17 @@ Status-Legende: `[ ]` offen · `[x]` erledigt
 - [ ] Commit: "Verfügbarkeits-/Konfliktprüfung inkl. Tests"
 
 ## 4. Formular & Backend (Flask)
-- [ ] Flask-App-Grundgerüst (`app/__init__.py`, `app/routes.py`)
-- [ ] Reservationsformular (HTML, alle Pflichtfelder aus dem Original-PDF 1:1 übernommen,
+- [x] Flask-App-Grundgerüst (`app/__init__.py`, `app/routes.py`, `run.py`)
+- [x] Reservationsformular (HTML, alle Pflichtfelder aus dem Original-PDF 1:1 übernommen,
       optionale Felder wie Bestuhlung/Technik/Personenzahl)
-- [ ] Serverseitige Pflichtfeld-Validierung (required + Validierung bei Fehlen/Format)
-- [ ] Beim Absenden: Eingangszeitstempel setzen, Verfügbarkeit prüfen, Status setzen
-- [ ] Sekretariats-Ansicht: Liste aller Reservationen/Anfragen mit Status
+- [x] Clientseitige (`required`) + serverseitige Pflichtfeld- und Plausibilitätsvalidierung
+      (ungültiger Raum, Ende vor Beginn)
+- [x] Beim Absenden: Eingangszeitstempel setzen, Verfügbarkeit prüfen, Status setzen,
+      Ergebnisseite anzeigen
+- [x] Sekretariats-Ansicht: Liste aller Reservationen/Anfragen mit Status
+- [x] End-to-End per Flask-Test-Client verifiziert (Pflichtfeld-Fehler, Bestätigung, Absage bei
+      Konflikt, Sekretariats-Ansicht) — kein Browser in dieser Umgebung verfügbar, daher Prüfung
+      über simulierte HTTP-Requests statt visueller Browser-Kontrolle
 - [ ] Commit: "Formular & Backend"
 
 ## 5. E-Mail-Logik

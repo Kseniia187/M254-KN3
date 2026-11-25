@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block titel %}Sekretariats-Ansicht{% endblock %}
+{% block inhalt %}
+<h2>Alle Reservationen</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Status</th>
+            <th>Raum</th>
+            <th>Datum</th>
+            <th>Beginn</th>
+            <th>Ende</th>
+            <th>Kontaktperson</th>
+            <th>E-Mail</th>
+            <th>Verpflegung</th>
+            <th>Eingang</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in reservationen %}
+        <tr class="status-{{ r['status'] }}">
+            <td>{{ r['status'] }}</td>
+            <td>{{ r['raum'] }}</td>
+            <td>{{ r['datum'] }}</td>
+            <td>{{ r['beginn'] }}</td>
+            <td>{{ r['ende'] }}</td>
+            <td>{{ r['kontaktperson'] }}</td>
+            <td>{{ r['email'] }}</td>
+            <td>{{ 'Ja' if r['verpflegung'] else 'Nein' }}</td>
+            <td>{{ r['eingang_zeitpunkt'] }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="9">Noch keine Reservationen vorhanden.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

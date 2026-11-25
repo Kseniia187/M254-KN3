@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block titel %}Reservationsformular{% endblock %}
+{% block inhalt %}
+<p>
+    * Pflichtfelder für die Reservationsanfrage. Weitere Angaben können später ergänzt werden.<br>
+    Die Reservation ist erst nach Erhalt der Reservationsbestätigung verbindlich.
+</p>
+
+{% if fehler %}
+<div class="fehler">
+    <strong>Bitte korrigieren Sie folgende Angaben:</strong>
+    <ul>
+        {% for meldung in fehler %}
+        <li>{{ meldung }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<form method="post" action="{{ url_for('reservation.reservation_einreichen') }}">
+    <fieldset>
+        <legend>1. Kontaktperson und Veranstaltung</legend>
+        <label>Name der Kontaktperson *
+            <input type="text" name="kontaktperson" value="{{ werte.get('kontaktperson', '') }}" required>
+        </label>
+        <label>Organisation / Firma (falls zutreffend)
+            <input type="text" name="organisation" value="{{ werte.get('organisation') or '' }}">
+        </label>
+        <label>E-Mail-Adresse *
+            <input type="email" name="email" value="{{ werte.get('email', '') }}" required>
+        </label>
+        <label>Telefonnummer
+            <input type="tel" name="telefonnummer" value="{{ werte.get('telefonnummer') or '' }}">
+        </label>
+        <label>Titel / Bezeichnung der Veranstaltung
+            <input type="text" name="titel" value="{{ werte.get('titel') or '' }}">
+        </label>
+        <label>Art der Veranstaltung (z. B. Sitzung, Workshop, Weiterbildung)
+            <input type="text" name="veranstaltungsart" value="{{ werte.get('veranstaltungsart') or '' }}">
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <legend>2. Raum und Termin</legend>
+        <p>Gewünschter Raum * (bitte einen Raum auswählen)</p>
+        {% for raum in raeume %}
+        <label class="radio">
+            <input type="radio" name="raum" value="{{ raum }}" {% if werte.get('raum') == raum %}checked{% endif %} required>
+            {{ raum }}
+        </label>
+        {% endfor %}
+        <label>Veranstaltungsdatum * (TT.MM.JJJJ)
+            <input type="date" name="datum" value="{{ werte.get('datum', '') }}" required>
+        </label>
+        <label>Beginn * (HH:MM)
+            <input type="time" name="beginn" value="{{ werte.get('beginn', '') }}" required>
+        </label>
+        <label>Ende * (HH:MM)
+            <input type="time" name="ende" value="{{ werte.get('ende', '') }}" required>
+        </label>
+        <label>Anzahl Personen
+            <input type="number" name="anzahl_personen" min="1" value="{{ werte.get('anzahl_personen') or '' }}">
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <legend>3. Gewünschte Bestuhlung</legend>
+        {% for wert, bezeichnung in [
+            ('konzertbestuhlung', 'Konzertbestuhlung'),
+            ('seminarbestuhlung', 'Seminarbestuhlung mit Tischen'),
+            ('u_form', 'U-Form'),
+            ('stuhlkreis', 'Stuhlkreis'),
+            ('gruppentische', 'Gruppentische'),
+        ] %}
+        <label class="radio">
+            <input type="radio" name="bestuhlung" value="{{ wert }}" {% if werte.get('bestuhlung') == wert %}checked{% endif %}>
+            {{ bezeichnung }}
+        </label>
+        {% endfor %}
+    </fieldset>
+
+    <fieldset>
+        <legend>4. Verpflegung</legend>
+        <p>Wünschen Sie eine Verpflegung? *</p>
+        <label class="radio">
+            <input type="radio" name="verpflegung" value="ja" {% if werte.get('verpflegung') == True %}checked{% endif %} required>
+            Ja
+        </label>
+        <label class="radio">
+            <input type="radio" name="verpflegung" value="nein" {% if werte.get('verpflegung') == False %}checked{% endif %} required>
+            Nein
+        </label>
+        <p class="hinweis">Bei gewünschter Verpflegung nimmt die Restaurantleitung Kontakt mit Ihnen auf,
+            um Art, Umfang und Kosten der Verpflegung zu besprechen.</p>
+    </fieldset>
+
+    <fieldset>
+        <legend>5. Zusätzliche Wünsche und Bemerkungen</legend>
+        <label>Zum Beispiel benötigte Technik, Material oder besondere Anforderungen an die Raumeinrichtung.
+            <textarea name="bemerkungen" rows="4">{{ werte.get('bemerkungen') or '' }}</textarea>
+        </label>
+    </fieldset>
+
+    <button type="submit">Reservationsanfrage senden</button>
+</form>
+{% endblock %}

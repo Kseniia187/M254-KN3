@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block titel %}Ergebnis der Reservationsanfrage{% endblock %}
+{% block inhalt %}
+{% if reservation['status'] == 'bestaetigt' %}
+<div class="erfolg">
+    <h2>Reservation bestätigt</h2>
+    <p>Die Reservation von <strong>{{ reservation['raum'] }}</strong> am
+        <strong>{{ reservation['datum'] }}</strong> von
+        <strong>{{ reservation['beginn'] }}</strong> bis
+        <strong>{{ reservation['ende'] }}</strong> wurde bestätigt.</p>
+    <p>Eine Reservationsbestätigung wurde an {{ reservation['email'] }} ausgelöst.</p>
+</div>
+{% else %}
+<div class="fehler">
+    <h2>Reservation nicht möglich</h2>
+    <p>Der Raum <strong>{{ reservation['raum'] }}</strong> ist am
+        <strong>{{ reservation['datum'] }}</strong> im Zeitraum
+        <strong>{{ reservation['beginn'] }}–{{ reservation['ende'] }}</strong> bereits belegt.</p>
+    <p>Sie können gerne eine neue Anfrage für einen anderen Raum oder Zeitraum einreichen.</p>
+</div>
+{% endif %}
+<p><a href="{{ url_for('reservation.formular') }}">Neue Reservationsanfrage stellen</a></p>
+{% endblock %}

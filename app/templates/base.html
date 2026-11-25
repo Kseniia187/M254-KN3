@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titel %}Raumreservation{% endblock %} – Bildungszentrum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Raumreservation Seminarräume</h1>
+        <nav>
+            <a href="{{ url_for('reservation.formular') }}">Reservationsformular</a>
+            <a href="{{ url_for('reservation.sekretariat') }}">Sekretariats-Ansicht</a>
+        </nav>
+    </header>
+    <main>
+        {% block inhalt %}{% endblock %}
+    </main>
+</body>
+</html>
