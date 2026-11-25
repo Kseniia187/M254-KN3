@@ -9,13 +9,14 @@ Status-Legende: `[ ]` offen · `[x]` erledigt
 - [x] Git-Repository initialisiert, `.gitignore` angelegt
 - [x] `CLAUDE.md` mit Architektur & Regeln erstellt
 - [x] `TODO.md` erstellt
-- [ ] Projektgerüst anlegen (`app/`, `tests/`, `email_templates/`, `requirements.txt`,
-      virtuelle Umgebung) + erster Commit
+- [x] Projektgerüst angelegt (`app/`, `tests/`, `email_templates/`, `data/`, `exports/`,
+      `requirements.txt`, virtuelle Umgebung `.venv/`)
 
 ## 2. Datenbank-Struktur
-- [ ] SQLite-Schema für Reservationen definieren (Pflicht- + optionale Felder, Status
+- [x] SQLite-Schema für Reservationen definiert (Pflicht- + optionale Felder, Status
       `bestaetigt`/`abgesagt`, Eingangszeitstempel)
-- [ ] `app/db.py` + `app/models.py` (Init, Insert, Query nach Raum/Zeitraum/Status)
+- [x] `app/db.py` + `app/models.py` (Init, Insert, Query nach Raum/Datum/Status,
+      Pflichtfeld-Check) — manuell per Smoke-Test verifiziert
 - [ ] Commit: "Datenbank-Struktur"
 
 ## 3. Verfügbarkeits- und Konfliktprüfung
