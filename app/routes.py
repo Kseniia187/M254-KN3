@@ -1,6 +1,6 @@
-from flask import Blueprint, abort, redirect, render_template, request, url_for
+from flask import Blueprint, abort, redirect, render_template, request, send_file, url_for
 
-from . import db, emails, models
+from . import db, emails, excel_export, models
 from .availability import raum_ist_verfuegbar
 from .db import RAEUME
 
@@ -106,3 +106,13 @@ def sekretariat():
     finally:
         conn.close()
     return render_template("sekretariat.html", reservationen=reservationen)
+
+
+@bp.route("/export/reservationsliste.xlsx")
+def export_reservationsliste():
+    conn = db.get_connection()
+    try:
+        pfad = excel_export.exportiere_reservationsliste(conn)
+    finally:
+        conn.close()
+    return send_file(pfad, as_attachment=True, download_name="Reservationsliste.xlsx")

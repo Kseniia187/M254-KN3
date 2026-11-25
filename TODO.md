@@ -55,8 +55,11 @@ Status-Legende: `[ ]` offen · `[x]` erledigt
 - [ ] Commit: "E-Mail-Logik"
 
 ## 6. Excel-Export
-- [ ] `app/excel_export.py`: Export bestätigter Reservationen in ein zu
-      `Reservationsliste.xlsx` kompatibles Format (gleiche Spalten)
+- [x] `app/excel_export.py`: Export bestätigter Reservationen in ein zu
+      `Reservationsliste.xlsx` kompatibles Format (identische Spalten wie Original)
+- [x] Download-Route `/export/reservationsliste.xlsx` + Link in Sekretariats-Ansicht
+- [x] Test verifiziert Originalspalten und dass nur bestätigte Reservationen exportiert
+      werden — 17/17 Tests grün
 - [ ] Commit: "Excel-Export"
 
 ## 7. Tests & Qualitätssicherung
