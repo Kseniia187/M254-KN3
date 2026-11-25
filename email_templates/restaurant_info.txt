@@ -1,0 +1,20 @@
+SUBJECT: Verpflegung gewünscht – {{ raum }}, {{ datum }}
+
+Guten Tag
+
+Für folgende Veranstaltung wurde eine Verpflegung gewünscht:
+
+Raum: {{ raum }}
+Datum: {{ datum }}
+Beginn: {{ beginn }} Uhr
+Ende: {{ ende }} Uhr
+
+Kontaktperson: {{ kontaktperson }}
+E-Mail-Adresse: {{ email }}
+Telefonnummer: {{ telefonnummer }}
+
+Bitte nehmen Sie mit der Kontaktperson Kontakt auf, um Art, Umfang und Kosten der Verpflegung zu besprechen.
+
+Freundliche Grüsse
+
+Sekretariat

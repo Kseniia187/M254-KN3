@@ -42,11 +42,16 @@ Status-Legende: `[ ]` offen · `[x]` erledigt
 - [ ] Commit: "Formular & Backend"
 
 ## 5. E-Mail-Logik
-- [ ] Original-`.eml`-Vorlagen in parametrisierte Text-Vorlagen (`email_templates/`) überführen
-- [ ] `app/emails.py`: Platzhalter befüllen, Ergebnis als `.eml` in `data/outbox/` schreiben
-- [ ] Reservationsbestätigung bei Verfügbarkeit automatisch auslösen
-- [ ] Absage bei Konflikt automatisch auslösen
-- [ ] Neue Vorlage `restaurant_info.txt` erstellen + automatischer Versand bei Verpflegung=Ja
+- [x] Original-`.eml`-Vorlagen in parametrisierte Jinja2-Text-Vorlagen (`email_templates/`)
+      überführt (bestaetigung.txt, absage.txt)
+- [x] `app/emails.py`: Platzhalter befüllen, Ergebnis als `.eml` (echtes MIME-Format) in
+      `data/outbox/` schreiben
+- [x] Reservationsbestätigung bei Verfügbarkeit automatisch ausgelöst (in `routes.py`)
+- [x] Absage bei Konflikt automatisch ausgelöst (in `routes.py`)
+- [x] Neue Vorlage `restaurant_info.txt` erstellt (keine Originalvorlage vorhanden) +
+      automatischer Versand bei Verpflegung=Ja
+- [x] 5 neue pytest-Tests (Platzhalter-Rendering, fehlender Titel, fehlende Telefonnummer) +
+      End-to-End-Check über die Flask-Routen — 16/16 Tests grün
 - [ ] Commit: "E-Mail-Logik"
 
 ## 6. Excel-Export

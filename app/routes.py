@@ -1,6 +1,6 @@
 from flask import Blueprint, abort, redirect, render_template, request, url_for
 
-from . import db, models
+from . import db, emails, models
 from .availability import raum_ist_verfuegbar
 from .db import RAEUME
 
@@ -70,6 +70,14 @@ def reservation_einreichen():
         verfuegbar = raum_ist_verfuegbar(daten["beginn"], daten["ende"], bestehende)
         status = "bestaetigt" if verfuegbar else "abgesagt"
         reservation_id = models.insert_reservation(conn, daten, status=status)
+
+        if status == "bestaetigt":
+            emails.sende_bestaetigung(daten)
+            if daten["verpflegung"]:
+                emails.sende_restaurant_info(daten)
+                models.mark_restaurant_informiert(conn, reservation_id)
+        else:
+            emails.sende_absage(daten)
     finally:
         conn.close()
 

@@ -1,0 +1,15 @@
+SUBJECT: Ihre Reservationsanfrage – {{ raum }}, {{ datum }}
+
+Guten Tag {{ kontaktperson }}
+
+Vielen Dank für Ihre Reservationsanfrage für die Veranstaltung «{{ titel }}».
+
+Leider ist der gewünschte Raum {{ raum }} am {{ datum }} im Zeitraum von {{ beginn }} Uhr bis {{ ende }} Uhr bereits belegt. Wir können Ihre Reservationsanfrage deshalb nicht bestätigen.
+
+Gerne können Sie uns eine neue Anfrage für einen anderen Raum oder einen anderen Zeitraum senden.
+
+Vielen Dank für Ihr Verständnis.
+
+Freundliche Grüsse
+
+Sekretariat
