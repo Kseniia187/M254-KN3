@@ -73,9 +73,14 @@ Status-Legende: `[ ]` offen · `[x]` erledigt
 - [ ] Commit: "Tests"
 
 ## 8. Dokumentation
-- [ ] `Projektdokumentation.md`: Ist-Zustand, Soll-Zustand, Funktionsweise, Anleitung,
-      bewusste Abweichungen vom Original-Prozess, Testergebnisse, Fazit
+- [x] `Projektdokumentation.md`: Ist-Zustand, Soll-Zustand/Umsetzungskonzept (FR/NFR-Tabellen),
+      Realisierung, Überprüfung, Anleitung, bewusste Abweichungen vom Original-Prozess, Fazit
 - [ ] Commit: "Projektdokumentation"
+
+## Status
+Alle acht Teilaufgaben-Blöcke sind inhaltlich abgeschlossen. Offene Punkte für die
+Lehrperson/Präsentation: echte Browser-Screenshots ergänzen (in dieser Umgebung nicht
+möglich), ggf. Git-Push nach GitHub-Authentifizierung nachholen.
 
 ## Offene Annahmen (mit Nutzer/Lehrperson klären falls nötig)
 - Restaurant-Info-Mail wurde neu entworfen, da keine Original-Vorlage existiert.
