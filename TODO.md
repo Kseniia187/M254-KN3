@@ -20,10 +20,11 @@ Status-Legende: `[ ]` offen · `[x]` erledigt
 - [ ] Commit: "Datenbank-Struktur"
 
 ## 3. Verfügbarkeits- und Konfliktprüfung
-- [ ] `app/availability.py`: reine Funktion für Zeit-Überschneidung pro Raum gegen bestätigte
+- [x] `app/availability.py`: reine Funktion für Zeit-Überschneidung pro Raum gegen bestätigte
       Reservationen
-- [ ] Unit-Tests (pytest): keine Überschneidung, direkte Überschneidung, Rand-an-Rand (Ende =
-      Beginn, kein Konflikt), unterschiedliche Räume, First-come-Priorisierung bei Wettlauf
+- [x] Unit-Tests (pytest): keine Überschneidung, direkte Überschneidung, Rand-an-Rand (Ende =
+      Beginn, kein Konflikt), vollständig enthalten, mehrere bestehende Reservationen,
+      First-come-Priorisierung bei Wettlauf (Integrationstest mit DB) — 11/11 Tests grün
 - [ ] Commit: "Verfügbarkeits-/Konfliktprüfung inkl. Tests"
 
 ## 4. Formular & Backend (Flask)

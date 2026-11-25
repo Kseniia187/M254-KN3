@@ -35,16 +35,18 @@ CREATE INDEX IF NOT EXISTS idx_reservationen_raum_datum
 """
 
 
-def get_connection() -> sqlite3.Connection:
-    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(DB_PATH)
+def get_connection(db_path: Path | None = None) -> sqlite3.Connection:
+    """`db_path` erlaubt Tests, eine isolierte Datenbank statt der produktiven zu verwenden."""
+    path = db_path or DB_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
 
 
-def init_db() -> None:
-    conn = get_connection()
+def init_db(db_path: Path | None = None) -> None:
+    conn = get_connection(db_path)
     try:
         conn.executescript(SCHEMA_SQL)
         conn.commit()
