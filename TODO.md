@@ -63,9 +63,13 @@ Status-Legende: `[ ]` offen · `[x]` erledigt
 - [ ] Commit: "Excel-Export"
 
 ## 7. Tests & Qualitätssicherung
-- [ ] Vollständige pytest-Suite lauffähig (Konfliktprüfung, Validierung, E-Mail-Rendering,
-      Excel-Export)
-- [ ] Manuelle End-to-End-Prüfung über die laufende App (Demo-Szenario mit Konflikt)
+- [x] Vollständige pytest-Suite lauffähig (Konfliktprüfung, Validierung, E-Mail-Rendering,
+      Excel-Export) — 17/17 Tests grün
+- [x] Manuelle End-to-End-Prüfung über den laufenden Dev-Server (nicht nur Test-Client):
+      zwei überlappende Anfragen per curl eingereicht, Bestätigung/Absage/Restaurant-Info
+      korrekt in der Outbox, Sekretariats-Ansicht und Excel-Export funktionieren live.
+      Dabei einen Bug im Testablauf gefunden (DB-Datei während laufendem Server gelöscht ->
+      "no such table") — kein App-Bug, nur Testartefakt, durch Server-Neustart behoben.
 - [ ] Commit: "Tests"
 
 ## 8. Dokumentation
